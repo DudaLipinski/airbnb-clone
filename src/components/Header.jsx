@@ -8,7 +8,6 @@ const Wrapper = styled.header`
   align-items: center;
 
   height: 70px;
-  padding: 0 20px;
   background-color: #ffffff;
   box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
 `;
