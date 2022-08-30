@@ -8,3 +8,5 @@ To run:
 
 - npm install
 - npm run dev
+
+![image](https://user-images.githubusercontent.com/24777227/187457728-7ab42e6c-38a0-4163-9361-10ba9a4cb6f0.png)
