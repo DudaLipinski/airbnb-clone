@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ImgAdventure from "../assets/adventure.jpg";
 import Star from "../assets/star.png";
 
 const Wrapper = styled.section`
@@ -90,27 +89,35 @@ const Price = styled.p`
   color: #222222;
 `;
 
-function Card() {
-  return (
-    <Wrapper>
-      <CenteredContent>
-        <CardItem>
-          <Button>SOLD OUT</Button>
-          <CardImg src={ImgAdventure} />
-          <Review>
-            <img src={Star}></img>
-            <p>5.0</p>
-            <span>(6)</span>
-            <Country>USA</Country>
-          </Review>
-          <Description>Life lessons with Katie Zaferes</Description>
-          <Price>
-            <b>From $136</b> / person
-          </Price>
-        </CardItem>
-      </CenteredContent>
-    </Wrapper>
-  );
-}
+const getCard = ({
+  id,
+  title,
+  price,
+  coverImg,
+  stats,
+  location,
+  openSpots,
+}) => (
+  <CardItem key={id}>
+    <Button>{openSpots > 0 ? "ONLINE" : "SOLD OUT"}</Button>
+    <CardImg src={`src/assets/${coverImg}`} />
+    <Review>
+      <img src={Star}></img>
+      <p>{stats.rating}</p>
+      <span>({stats.reviewCount})</span>
+      <Country>{location}</Country>
+    </Review>
+    <Description>{title}</Description>
+    <Price>
+      <b>From ${price}</b> / person
+    </Price>
+  </CardItem>
+);
+
+const Card = ({ cards }) => (
+  <Wrapper>
+    <CenteredContent>{cards.map(getCard)}</CenteredContent>
+  </Wrapper>
+);
 
 export default Card;
